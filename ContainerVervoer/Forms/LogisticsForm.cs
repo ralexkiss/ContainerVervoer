@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContainerVervoer.Models;
 using ContainerVervoer.Logic;
+using ContainerVervoer.Enums;
 
 namespace ContainerVervoer.Forms
 {
@@ -27,6 +28,7 @@ namespace ContainerVervoer.Forms
 
             //INITIALIZE
             ShipSizeLabel.Text = shipLogic.cargoShip.width.ToString() + " x " + shipLogic.cargoShip.length.ToString();
+            containerType.DataSource = Enum.GetValues(typeof(ContainerType));
         }
 
         /// <summary>
@@ -38,7 +40,7 @@ namespace ContainerVervoer.Forms
         {
             if (Int32.TryParse(addContainerWeight.Text, out int weight))
             {
-                logisticsLogic.CreateContainer(weight, cooledCheckbox.Checked, valuableCheckbox.Checked);
+                logisticsLogic.CreateContainer(weight, containerType.SelectedValue.ToString());
             }
             else
             {
@@ -53,29 +55,24 @@ namespace ContainerVervoer.Forms
         /// <param name="e"></param>
         private void DeleteContainerButton_Click(object sender, EventArgs e)
         {
+            shipLogic.cargoShip.logistics.containersToPlace.Remove(shipLogic.cargoShip.logistics.containersToPlace.Find(i => i.id == cargoDeckBox.SelectedItem.ToString().Substring(4, 36)));
             cargoDeckBox.Items.Remove(cargoDeckBox.SelectedItem);
-            shipLogic.cargoShip.logistics.containersToPlace.Remove(shipLogic.cargoShip.logistics.containersToPlace.Find(i => i.id == cargoDeckBox.SelectedIndex.ToString()));
-        }
-
-        /// <summary>
-        /// Adds random generated containers.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GenerateButton_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void SortButton_Click(object sender, EventArgs e)
         {
             if (logisticsLogic.StartSorting())
             {
-                CargoShipForm cargoShip = new CargoShipForm();
+                CargoShipForm cargoShip = new CargoShipForm(this);
                 cargoShip.Show();
                 this.Hide();
                 return;
             }
+        }
+
+        private void GMDButton_Click(object sender, EventArgs e)
+        {
+            logisticsLogic.GenerateRandomContainers();
         }
     }
 }

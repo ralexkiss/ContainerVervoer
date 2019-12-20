@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogisticsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.valuableCheckbox = new System.Windows.Forms.CheckBox();
-            this.cooledCheckbox = new System.Windows.Forms.CheckBox();
             this.ConfirmContainerButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.addContainerWeight = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.GenerateButton = new System.Windows.Forms.Button();
             this.DeleteContainerButton = new System.Windows.Forms.Button();
             this.SortButton = new System.Windows.Forms.Button();
             this.cargoDeckBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ShipSizeLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.containerType = new System.Windows.Forms.ComboBox();
+            this.GMDButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -51,8 +51,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.valuableCheckbox);
-            this.groupBox1.Controls.Add(this.cooledCheckbox);
+            this.groupBox1.Controls.Add(this.containerType);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.ConfirmContainerButton);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.addContainerWeight);
@@ -64,29 +64,9 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Container";
             // 
-            // valuableCheckbox
-            // 
-            this.valuableCheckbox.AutoSize = true;
-            this.valuableCheckbox.Location = new System.Drawing.Point(74, 68);
-            this.valuableCheckbox.Name = "valuableCheckbox";
-            this.valuableCheckbox.Size = new System.Drawing.Size(67, 17);
-            this.valuableCheckbox.TabIndex = 10;
-            this.valuableCheckbox.Text = "Valuable";
-            this.valuableCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // cooledCheckbox
-            // 
-            this.cooledCheckbox.AutoSize = true;
-            this.cooledCheckbox.Location = new System.Drawing.Point(74, 45);
-            this.cooledCheckbox.Name = "cooledCheckbox";
-            this.cooledCheckbox.Size = new System.Drawing.Size(59, 17);
-            this.cooledCheckbox.TabIndex = 9;
-            this.cooledCheckbox.Text = "Cooled";
-            this.cooledCheckbox.UseVisualStyleBackColor = true;
-            // 
             // ConfirmContainerButton
             // 
-            this.ConfirmContainerButton.Location = new System.Drawing.Point(50, 91);
+            this.ConfirmContainerButton.Location = new System.Drawing.Point(38, 93);
             this.ConfirmContainerButton.Name = "ConfirmContainerButton";
             this.ConfirmContainerButton.Size = new System.Drawing.Size(108, 23);
             this.ConfirmContainerButton.TabIndex = 6;
@@ -121,7 +101,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.GenerateButton);
             this.groupBox2.Controls.Add(this.DeleteContainerButton);
             this.groupBox2.Controls.Add(this.SortButton);
             this.groupBox2.Controls.Add(this.cargoDeckBox);
@@ -131,16 +110,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Container List";
-            // 
-            // GenerateButton
-            // 
-            this.GenerateButton.Location = new System.Drawing.Point(4, 190);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(115, 22);
-            this.GenerateButton.TabIndex = 4;
-            this.GenerateButton.Text = "Generate MockData";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
             // 
             // DeleteContainerButton
             // 
@@ -154,7 +123,7 @@
             // 
             // SortButton
             // 
-            this.SortButton.Location = new System.Drawing.Point(120, 190);
+            this.SortButton.Location = new System.Drawing.Point(9, 191);
             this.SortButton.Name = "SortButton";
             this.SortButton.Size = new System.Drawing.Size(92, 22);
             this.SortButton.TabIndex = 2;
@@ -199,6 +168,33 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Deck Size:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "ContainerType:";
+            // 
+            // containerType
+            // 
+            this.containerType.FormattingEnabled = true;
+            this.containerType.Location = new System.Drawing.Point(19, 66);
+            this.containerType.Name = "containerType";
+            this.containerType.Size = new System.Drawing.Size(150, 21);
+            this.containerType.TabIndex = 11;
+            // 
+            // GMDButton
+            // 
+            this.GMDButton.Location = new System.Drawing.Point(4, 87);
+            this.GMDButton.Name = "GMDButton";
+            this.GMDButton.Size = new System.Drawing.Size(75, 23);
+            this.GMDButton.TabIndex = 3;
+            this.GMDButton.Text = "GMD";
+            this.GMDButton.UseVisualStyleBackColor = true;
+            this.GMDButton.Click += new System.EventHandler(this.GMDButton_Click);
+            // 
             // LogisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +202,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(299, 347);
+            this.Controls.Add(this.GMDButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -238,9 +235,9 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox addContainerWeight;
         public System.Windows.Forms.ListBox cargoDeckBox;
-        private System.Windows.Forms.Button GenerateButton;
         public System.Windows.Forms.Label ShipSizeLabel;
-        private System.Windows.Forms.CheckBox valuableCheckbox;
-        private System.Windows.Forms.CheckBox cooledCheckbox;
+        private System.Windows.Forms.ComboBox containerType;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button GMDButton;
     }
 }

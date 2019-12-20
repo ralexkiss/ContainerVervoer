@@ -39,6 +39,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CargoShipForm";
             this.Text = "CargoShip";
+            this.Load += new System.EventHandler(this.CargoShipForm_Load);
             this.ResumeLayout(false);
 
         }

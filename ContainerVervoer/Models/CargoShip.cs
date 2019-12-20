@@ -17,5 +17,6 @@ namespace ContainerVervoer.Models
             this.width = width;
             this.length = length;
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ContainerVervoer.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,13 @@ namespace ContainerVervoer.Models
     {
         public string id { get; set; }
         public int weight { get; set; }
-        public bool valuable, cooled;
+        public ContainerType containerType { get; set; }
 
-    public Container(string id, int weight, bool cooled, bool valuable)
+        public Container(string id, int weight, ContainerType containerType)
         {
             this.id = id;
             this.weight = weight;
-            this.valuable = valuable;
-            this.cooled = cooled;
+            this.containerType = containerType;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace ContainerVervoer.Models
         /// <returns></returns>
         public override string ToString()
         {
-            return "Container: " + id + " - Weight: " + weight + " - Valuable: " + valuable + " - Cooled: " + cooled;
+            return "ID: " + id + " - Weight: " + weight + " - ContainerType: " + containerType;
         }
     }
 }

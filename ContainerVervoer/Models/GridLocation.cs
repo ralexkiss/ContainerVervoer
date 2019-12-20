@@ -15,5 +15,11 @@ namespace ContainerVervoer.Models
             this.x = x;
             this.z = z;
         }
+
+        public override string ToString()
+        {
+            string final = "Location: " + x + " - " + z;
+            return final;
+        }
     }
 }
