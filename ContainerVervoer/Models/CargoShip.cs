@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ContainerVervoer.Models
 {
@@ -37,9 +38,10 @@ namespace ContainerVervoer.Models
         /// <returns></returns>
         public bool AddContainers(List<Container> containers)
         {
-            if (containers.Sum(container => container.Weight) + GetWeight() > maximumWeight / 2 || 
+            if (containers.Sum(container => container.Weight) + GetWeight() < maximumWeight / 2 || 
                 containers.Sum(container => container.Weight) + GetWeight() > maximumWeight)
             {
+                MessageBox.Show("", "Problem with Weight!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             foreach (Container container in containers)
