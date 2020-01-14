@@ -12,12 +12,20 @@ namespace ContainerVervoer.Models
         public List<Stack> Stacks = new List<Stack>();
         public Row(int length)
         {
+            GenerateStacks(length);
+        }
+
+        #region Generates the stacks
+        public void GenerateStacks(int length)
+        {
             for (int i = 0; i < length; i++)
             {
                 Stacks.Add(new Stack());
             }
         }
+        #endregion
 
+        #region Checks the Container Type
         public bool AddContainer(Container container)
         {
             switch(container.Type)
@@ -31,12 +39,16 @@ namespace ContainerVervoer.Models
             }
             return false;
         }
+        #endregion
 
+        #region Cooled Containers
         public bool AddCooledContainers(Container container)
         {
             return Stacks.First().AddContainer(container);
         }
+        #endregion
 
+        #region Normal Containers
         public bool AddNormalContainers(Container container)
         {
             foreach (Stack stack in Stacks.Skip(1))
@@ -48,26 +60,36 @@ namespace ContainerVervoer.Models
             }
             return false;
         }
+        #endregion
 
-        // TODO: Recode this since this isn't really readable, could probably also be simpler + doesn't work as intended to.
+        #region Valuable Containers
         public bool AddValuableContainers(Container container)
         {
             for (int i = 0; i < Stacks.Count; i++)
             {
-                if (i % 2 == 0)
+                if (i % 2 == 0) // Checks if the stack is an even stack.
                 {
-                    if (Stacks[i].AddContainer(container))
+                    if (Stacks[i + 1] != null) // Checks if the next stack exists
                     {
-                        return true;
+                        if (Stacks[i + 1].Containers.Count <= Stacks[i].Containers.Count) // Checks if the stack infront is lower in height than the one where valuable would be added
+                        {
+                            if (Stacks[i].AddContainer(container)) // Adds the Container
+                            {
+                                return true;
+                            }
+                        }
                     }
                 }
             }
             return false;
         }
+        #endregion
 
+        #region Getter for Weight
         public int GetWeight()
         {
             return Stacks.Sum(stacks => stacks.GetWeight());
         }
+        #endregion
     }
 }

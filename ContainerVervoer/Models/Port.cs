@@ -9,19 +9,32 @@ namespace ContainerVervoer.Models
 {
     public class Port
     {
+
         public List<Container> containersToPlace = new List<Container>();
-        public CargoShip Ship;
+        public CargoShip cargoShip;
 
         public Port(int length, int width, int maximumweight)
         {
-            Ship = new CargoShip(length, width, maximumweight);
+            cargoShip = new CargoShip(length, width, maximumweight);
         }
 
+        #region Starts the placing of containers
+        /// <summary>
+        /// Starts the placing algoritm
+        /// </summary>
+        /// <returns></returns>
         public bool StartSorting()
         {
-            return Ship.AddContainers(SortContainersList(containersToPlace));
+            return cargoShip.AddContainers(SortContainersList(containersToPlace));
         }
+        #endregion
 
+        #region Sorts the list of containers
+        /// <summary>
+        /// Sorts the list of containers that need to get placed.
+        /// </summary>
+        /// <param name="containers"></param>
+        /// <returns></returns>
         public List<Container> SortContainersList(List<Container> containers)
         {
             return containers.Where(container => container.Type == ContainerType.Cooled).ToList()
@@ -29,10 +42,6 @@ namespace ContainerVervoer.Models
                 .Concat(containers.Where(container => container.Type == ContainerType.Valuable).ToList())
                 .ToList();
         }
-
-        public string GetShip()
-        {
-            return Ship.ToString();
-        }
+        #endregion
     }
 }

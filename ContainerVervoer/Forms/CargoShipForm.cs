@@ -33,7 +33,7 @@ namespace ContainerVervoer.Forms
             int x = 0;
             int z = 0;
 
-            foreach (Row row in port.Ship.Rows)
+            foreach (Row row in port.cargoShip.Rows)
             {  
                 foreach (Stack stack in row.Stacks)
                 {
@@ -57,7 +57,7 @@ namespace ContainerVervoer.Forms
             Label informationLabel = new Label
             {
                 Size = new Size(200, 100),
-                Location = new Point((boxWidth + 5) * port.Ship.width + 30, 30),
+                Location = new Point((boxWidth + 5) * port.cargoShip.width + 30, 30),
                 Text = "CargoShip is safe, filled and ready to go!"
             };
             Controls.Add(informationLabel);
@@ -73,7 +73,7 @@ namespace ContainerVervoer.Forms
                 int x = int.Parse(label.Text.Substring(7, 2));
                 int z = int.Parse(label.Text.Substring(11, 2));
 
-                Row row = port.Ship.Rows[x];
+                Row row = port.cargoShip.Rows[x];
                 Stack stack = row.Stacks[z];
 
                 MessageBox.Show(stack.ToString(), "Location: " + x + " - " + z, MessageBoxButtons.OK, MessageBoxIcon.Information);

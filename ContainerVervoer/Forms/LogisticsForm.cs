@@ -16,7 +16,7 @@ namespace ContainerVervoer.Forms
 
             this.port = port;
 
-            ShipSizeLabel.Text = port.Ship.length + " x " + port.Ship.width;
+            ShipSizeLabel.Text = port.cargoShip.length + " x " + port.cargoShip.width;
             containerType.DataSource = Enum.GetValues(typeof(ContainerType));
         }
 
@@ -70,12 +70,12 @@ namespace ContainerVervoer.Forms
 
         private void GMDButton_Click(object sender, EventArgs e)
         {
-            for (int x = 0; x < port.Ship.length; x++)
+            for (int x = 0; x < port.cargoShip.length; x++)
             {
-                for (int z = 0; z < port.Ship.width; z++)
+                for (int z = 0; z < port.cargoShip.width; z++)
                 {
                     Container container = new Container(GetRandomWeight(), GetRandomType());
-                    if (port.containersToPlace.Sum(foundContainers => foundContainers.Weight) + container.Weight <= port.Ship.maximumWeight)
+                    if (port.containersToPlace.Sum(foundContainers => foundContainers.Weight) + container.Weight <= port.cargoShip.maximumWeight)
                     {
                         cargoDeckBox.Items.Add(container);
                         port.containersToPlace.Add(container);
