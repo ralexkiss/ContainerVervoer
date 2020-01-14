@@ -9,6 +9,7 @@ namespace UnitTests
     public class UnitTests
     {
         Port port;
+
         [TestInitialize]
         public void InitializeTests()
         {
@@ -25,14 +26,14 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentException))]
         public void WeightTooHeigh()
         {
-            _ = new Container(31000, ContainerType.Normal);
+            _ = new Container(32500, ContainerType.Normal);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void WeightTooLow()
         {
-            _ = new Container(1000, ContainerType.Normal);
+            _ = new Container(2000, ContainerType.Normal);
         }
 
         [TestMethod]
@@ -55,6 +56,16 @@ namespace UnitTests
             stack.Containers.Add(new Container(30000, ContainerType.Normal));
             stack.Containers.Add(new Container(15000, ContainerType.Normal));
             Assert.IsFalse(stack.WeightWithinLimit(new Container(20000, ContainerType.Normal)));
+        }
+
+        [TestMethod]
+        public void CheckIfCooledOnFirstRow()
+        {
+        }
+
+        [TestMethod]
+        public void IsShipBalanced()
+        {
         }
     }
 }

@@ -19,7 +19,7 @@ namespace ContainerVervoer.Models
             Type = type;
         }
 
-        private void SetWeight(int weight)
+        public void SetWeight(int weight)
         {
             if (weight < 4000 || weight > 30000)
             {
