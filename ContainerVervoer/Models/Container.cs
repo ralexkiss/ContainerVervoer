@@ -9,24 +9,28 @@ namespace ContainerVervoer.Models
 {
     public class Container
     {
-        public string id { get; set; }
-        public int weight { get; set; }
-        public ContainerType containerType { get; set; }
+        public int Weight { get; set; }
 
-        public Container(string id, int weight, ContainerType containerType)
+        public ContainerType Type { get; }
+
+        public Container(int weight, ContainerType type)
         {
-            this.id = id;
-            this.weight = weight;
-            this.containerType = containerType;
+            SetWeight(weight);
+            Type = type;
         }
 
-        /// <summary>
-        /// Returns a string value of a container
-        /// </summary>
-        /// <returns></returns>
+        private void SetWeight(int weight)
+        {
+            if (weight < 4000 || weight > 30000)
+            {
+                throw new ArgumentException("Weight must be between the minimum of 4000 and the maximum of 30000.");
+            }
+            Weight = weight;
+        }
+
         public override string ToString()
         {
-            return "ID: " + id + " - Weight: " + weight + " - ContainerType: " + containerType;
+            return $"Container: Type: {Type}, Weight: {Weight}";
         }
     }
 }

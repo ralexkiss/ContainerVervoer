@@ -65,13 +65,11 @@
     <Compile Include="Forms\CreationForm.Designer.cs">
       <DependentUpon>CreationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Logic\ShipLogic.cs" />
-    <Compile Include="Logic\CreationLogic.cs" />
-    <Compile Include="Logic\LogisticsLogic.cs" />
     <Compile Include="Models\CargoShip.cs" />
     <Compile Include="Models\Container.cs" />
-    <Compile Include="Models\GridLocation.cs" />
-    <Compile Include="Models\Logistics.cs" />
+    <Compile Include="Models\Port.cs" />
+    <Compile Include="Models\Row.cs" />
+    <Compile Include="Models\Stack.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CargoShipForm.resx">
@@ -105,6 +103,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Checklist.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

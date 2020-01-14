@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogisticsForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.containerType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.ConfirmContainerButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.addContainerWeight = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ShipSizeLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.containerType = new System.Windows.Forms.ComboBox();
             this.GMDButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,6 +63,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Container";
+            // 
+            // containerType
+            // 
+            this.containerType.FormattingEnabled = true;
+            this.containerType.Location = new System.Drawing.Point(19, 66);
+            this.containerType.Name = "containerType";
+            this.containerType.Size = new System.Drawing.Size(150, 21);
+            this.containerType.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "ContainerType:";
             // 
             // ConfirmContainerButton
             // 
@@ -168,23 +185,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Deck Size:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 50);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "ContainerType:";
-            // 
-            // containerType
-            // 
-            this.containerType.FormattingEnabled = true;
-            this.containerType.Location = new System.Drawing.Point(19, 66);
-            this.containerType.Name = "containerType";
-            this.containerType.Size = new System.Drawing.Size(150, 21);
-            this.containerType.TabIndex = 11;
-            // 
             // GMDButton
             // 
             this.GMDButton.Location = new System.Drawing.Point(4, 87);
@@ -212,7 +212,7 @@
             this.MinimizeBox = false;
             this.Name = "LogisticsForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Text = "ContainerShip Logistics";
+            this.Text = " ";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

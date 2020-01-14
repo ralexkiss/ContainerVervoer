@@ -4,6 +4,17 @@
     "D:\\GitProjects\\ContainerVervoer\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
+    "D:\\GitProjects\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitProjects\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer.csproj",
+        "projectName": "ContainerVervoer",
+        "projectPath": "D:\\GitProjects\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "D:\\GitProjects\\ContainerVervoer\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -31,7 +42,11 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\GitProjects\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer.csproj": {
+                "projectPath": "D:\\GitProjects\\ContainerVervoer\\ContainerVervoer\\ContainerVervoer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,17 +58,21 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.2.0, )"
             },
-            "NUnit3TestAdapter": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[3.13.0, )"
-            },
-            "nunit": {
-              "target": "Package",
-              "version": "[3.12.0, )"
+              "version": "[1.0.1, )"
             }
           },
           "imports": [

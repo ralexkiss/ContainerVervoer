@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreationForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.shipWeightValue = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.shipLengthValue = new System.Windows.Forms.NumericUpDown();
             this.shipWidthValue = new System.Windows.Forms.NumericUpDown();
             this.CreateShipBtn = new System.Windows.Forms.Button();
@@ -37,12 +39,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shipWeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipLengthValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipWidthValue)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.shipWeightValue);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.shipLengthValue);
             this.groupBox1.Controls.Add(this.shipWidthValue);
             this.groupBox1.Controls.Add(this.CreateShipBtn);
@@ -56,16 +61,37 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Create CargoShip";
             // 
+            // shipWeightValue
+            // 
+            this.shipWeightValue.Location = new System.Drawing.Point(66, 87);
+            this.shipWeightValue.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.shipWeightValue.Name = "shipWeightValue";
+            this.shipWeightValue.Size = new System.Drawing.Size(95, 20);
+            this.shipWeightValue.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Max Weight:";
+            // 
             // shipLengthValue
             // 
-            this.shipLengthValue.Location = new System.Drawing.Point(61, 83);
+            this.shipLengthValue.Location = new System.Drawing.Point(66, 61);
             this.shipLengthValue.Name = "shipLengthValue";
             this.shipLengthValue.Size = new System.Drawing.Size(95, 20);
             this.shipLengthValue.TabIndex = 11;
             // 
             // shipWidthValue
             // 
-            this.shipWidthValue.Location = new System.Drawing.Point(61, 57);
+            this.shipWidthValue.Location = new System.Drawing.Point(66, 35);
             this.shipWidthValue.Name = "shipWidthValue";
             this.shipWidthValue.Size = new System.Drawing.Size(95, 20);
             this.shipWidthValue.TabIndex = 10;
@@ -83,7 +109,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 85);
+            this.label4.Location = new System.Drawing.Point(0, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 5;
@@ -92,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 59);
+            this.label3.Location = new System.Drawing.Point(0, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 3;
@@ -102,7 +128,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(124, 16);
@@ -123,6 +149,7 @@
             this.Text = "Setup CargoShip";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shipWeightValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipLengthValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shipWidthValue)).EndInit();
             this.ResumeLayout(false);
@@ -138,6 +165,8 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.NumericUpDown shipWidthValue;
         public System.Windows.Forms.NumericUpDown shipLengthValue;
+        public System.Windows.Forms.NumericUpDown shipWeightValue;
+        private System.Windows.Forms.Label label2;
     }
 }
 
