@@ -39,7 +39,7 @@ namespace ContainerVervoer.Models
 
         public bool AddNormalContainers(Container container)
         {
-            foreach (Stack stack in Stacks) // Maybe with a .Skip(1)?? (Should test it what works better, talk with bert.
+            foreach (Stack stack in Stacks.Skip(1))
             {
                 if (stack.AddContainer(container))
                 {
@@ -54,20 +54,8 @@ namespace ContainerVervoer.Models
         {
             for (int i = 0; i < Stacks.Count; i++)
             {
-                if (i == Stacks.Count || i == 0)
+                if (i % 2 == 0)
                 {
-                    if (i == 0 && Stacks[i + 1].GetHeight() < Stacks[i].GetHeight() && Stacks[i].AddContainer(container) || 
-                        i == Stacks.Count && Stacks[i - 1].GetHeight() < Stacks[i].GetHeight() && Stacks[i].AddContainer(container))
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    if (Stacks[i - 1].GetHeight() >= Stacks[i].GetHeight() || Stacks[i + 1].GetHeight() >= Stacks[i].GetHeight())
-                    {
-                        continue;
-                    }
                     if (Stacks[i].AddContainer(container))
                     {
                         return true;
