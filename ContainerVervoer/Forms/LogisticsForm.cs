@@ -61,7 +61,7 @@ namespace ContainerVervoer.Forms
         {
             if (port.StartSorting())
             {
-                CargoShipForm cargoShip = new CargoShipForm();
+                CargoShipForm cargoShip = new CargoShipForm(port);
                 cargoShip.Show();
                 this.Hide();
                 return;

@@ -9,12 +9,15 @@ namespace ContainerVervoer.Models
 {
     public class Row
     {
-        List<Stack> Stacks;
-
+        public List<Stack> Stacks = new List<Stack>();
         public Row(int length)
         {
-            Stacks = Enumerable.Repeat(new Stack(), length).ToList();
+            for (int i = 0; i < length; i++)
+            {
+                Stacks.Add(new Stack());
+            }
         }
+
         public bool AddContainer(Container container)
         {
             switch(container.Type)
@@ -36,7 +39,7 @@ namespace ContainerVervoer.Models
 
         public bool AddNormalContainers(Container container)
         {
-            foreach (Stack stack in Stacks) // Maybe with a .Skip(1)?? (Should test it what works better)
+            foreach (Stack stack in Stacks) // Maybe with a .Skip(1)?? (Should test it what works better, talk with bert.
             {
                 if (stack.AddContainer(container))
                 {

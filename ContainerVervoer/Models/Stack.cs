@@ -11,6 +11,12 @@ namespace ContainerVervoer.Models
     {
         public List<Container> Containers = new List<Container>();
 
+        public override string ToString()
+        {
+            string result = "Stack: ";
+            Containers.ForEach(container => result += container.ToString());
+            return result;
+        }
         public bool AddContainer(Container container)
         {
             if (ContainsValuable() || !WeightWithinLimit(container))

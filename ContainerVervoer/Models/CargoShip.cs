@@ -8,7 +8,7 @@ namespace ContainerVervoer.Models
 {
     public class CargoShip
     {
-        List<Row> Rows { get; }
+        public List<Row> Rows = new List<Row>();
         public int length { get; }
         public int width { get; }
         public int maximumWeight { get; }
@@ -16,7 +16,10 @@ namespace ContainerVervoer.Models
 
         public CargoShip(int length, int width, int maximumWeight)
         {
-            Rows = Enumerable.Repeat(new Row(length), width).ToList();
+            for (int i = 0; i < width; i++)
+            {
+                Rows.Add(new Row(length));
+            }
             this.width = width;
             this.length = length;
             this.maximumWeight = maximumWeight;
