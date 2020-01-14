@@ -72,6 +72,11 @@
             this.shipWeightValue.Name = "shipWeightValue";
             this.shipWeightValue.Size = new System.Drawing.Size(95, 20);
             this.shipWeightValue.TabIndex = 13;
+            this.shipWeightValue.Value = new decimal(new int[] {
+            500000,
+            0,
+            0,
+            0});
             // 
             // label2
             // 
@@ -86,8 +91,14 @@
             // 
             this.shipLengthValue.Location = new System.Drawing.Point(66, 61);
             this.shipLengthValue.Name = "shipLengthValue";
+            this.shipLengthValue.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.shipLengthValue.Size = new System.Drawing.Size(95, 20);
             this.shipLengthValue.TabIndex = 11;
+            this.shipLengthValue.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // shipWidthValue
             // 
@@ -95,6 +106,11 @@
             this.shipWidthValue.Name = "shipWidthValue";
             this.shipWidthValue.Size = new System.Drawing.Size(95, 20);
             this.shipWidthValue.TabIndex = 10;
+            this.shipWidthValue.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // CreateShipBtn
             // 

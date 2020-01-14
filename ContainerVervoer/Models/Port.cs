@@ -17,9 +17,9 @@ namespace ContainerVervoer.Models
             Ship = new CargoShip(length, width, maximumweight);
         }
 
-        public void StartSorting()
+        public bool StartSorting()
         {
-            Ship.AddContainers(SortContainersList(containersToPlace));
+            return Ship.AddContainers(SortContainersList(containersToPlace));
         }
 
         public List<Container> SortContainersList(List<Container> containers)

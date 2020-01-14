@@ -23,7 +23,7 @@ namespace ContainerVervoer.Models
 
         public bool WeightWithinLimit(Container container)
         {
-            return Containers.Skip(1).Sum(foundContainer => foundContainer.Weight) + container.Weight <= 120000;
+            return Containers.Skip(1).Sum(foundContainers => foundContainers.Weight) + container.Weight <= 120000;
         }
 
         public bool ContainsValuable()
