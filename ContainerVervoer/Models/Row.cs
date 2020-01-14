@@ -49,7 +49,7 @@ namespace ContainerVervoer.Models
             return false;
         }
 
-        // TODO: Recode this since this isn't really readable + could probably also be simpler
+        // TODO: Recode this since this isn't really readable, could probably also be simpler + doesn't work as intended to.
         public bool AddValuableContainers(Container container)
         {
             for (int i = 0; i < Stacks.Count; i++)

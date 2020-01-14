@@ -41,7 +41,7 @@ namespace ContainerVervoer.Models
             if (containers.Sum(container => container.Weight) + GetWeight() < maximumWeight / 2 || 
                 containers.Sum(container => container.Weight) + GetWeight() > maximumWeight)
             {
-                MessageBox.Show("", "Problem with Weight!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Weight too low or over the maximum weight.", "Problem with Weight!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return false;
             }
             foreach (Container container in containers)

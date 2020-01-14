@@ -13,9 +13,13 @@ namespace ContainerVervoer.Models
 
         public override string ToString()
         {
-            string result = "Stack: ";
-            Containers.ForEach(container => result += container.ToString());
-            return result;
+            string result = "Stack Information: ";
+            if (Containers.Count > 0)
+            {
+                Containers.ForEach(container => result += "\n" + container.ToString());
+                return result;
+            }
+            return "Stack is Empty";
         }
         public bool AddContainer(Container container)
         {

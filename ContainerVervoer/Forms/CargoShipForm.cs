@@ -37,43 +37,29 @@ namespace ContainerVervoer.Forms
             {  
                 foreach (Stack stack in row.Stacks)
                 {
-                    Label locationBox = new Label();
-                    locationBox.Text = "Stack: " + x + " x " + z;
-                    locationBox.TextAlign = ContentAlignment.MiddleCenter;
-                    locationBox.ForeColor = Color.Black;
-                    locationBox.BackColor = SystemColors.Menu;
-                    locationBox.Size = new Size(boxWidth, boxHeight);
+                    Label locationBox = new Label
+                    {
+                        Text = "Stack: " + x + " x " + z + " ",
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        ForeColor = Color.Black,
+                        BackColor = SystemColors.Menu,
+                        Size = new Size(boxWidth, boxHeight),
+                        Location = new Point((boxWidth + 5) * x + 5, (boxHeight + 5) * z + 5)
+
+                    };
                     locationBox.Click += new EventHandler(txtBox_Click);
-                    locationBox.Location = new Point((boxWidth + 5) * x + 5, (boxHeight + 5) * z + 5);
                     Controls.Add(locationBox);
                     z++;
                 }
                 x++;
                 z = 0;
             }
-
-            /*
-            for (int x = 0; x < port.Ship.length; x++)
+            Label informationLabel = new Label
             {
-                for (int z = 0; z < port.Ship.width; z++)
-                {
-                    Label locationBox = new Label();
-                    locationBox.Text = "Stack";
-                    locationBox.TextAlign = ContentAlignment.MiddleCenter;
-                    locationBox.ForeColor = Color.Black;
-                    locationBox.BackColor = SystemColors.Menu;
-                    locationBox.Size = new Size(boxWidth, boxHeight);
-                    locationBox.Click += new EventHandler(txtBox_Click);
-                    locationBox.Location = new Point((boxWidth + 5) * x + 5, (boxHeight + 5) * z + 5);
-                    Controls.Add(locationBox);
-                }
-            }*/
-
-            //Add Main informations
-            Label informationLabel = new Label();
-            informationLabel.Size = new Size(200, 100);
-            informationLabel.Location = new Point((boxWidth + 5) * port.Ship.width + 30, 30);
-            informationLabel.Text += "\r\nCargoShip is safe, filled and ready to go!";
+                Size = new Size(200, 100),
+                Location = new Point((boxWidth + 5) * port.Ship.width + 30, 30),
+                Text = "CargoShip is safe, filled and ready to go!"
+            };
             Controls.Add(informationLabel);
         }
 
@@ -84,8 +70,8 @@ namespace ContainerVervoer.Forms
 
             if (label != null)
             {
-                int x = int.Parse(label.Text.Substring(7, 1));
-                int z = int.Parse(label.Text.Substring(11, 1));
+                int x = int.Parse(label.Text.Substring(7, 2));
+                int z = int.Parse(label.Text.Substring(11, 2));
 
                 Row row = port.Ship.Rows[x];
                 Stack stack = row.Stacks[z];
