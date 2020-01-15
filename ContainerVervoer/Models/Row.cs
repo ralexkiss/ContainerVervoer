@@ -9,11 +9,16 @@ namespace ContainerVervoer.Models
 {
     public class Row
     {
+        #region Variables
         public List<Stack> Stacks = new List<Stack>();
+        #endregion
+
+        #region Constructor
         public Row(int length)
         {
             GenerateStacks(length);
         }
+        #endregion
 
         #region Generates the stacks
         public void GenerateStacks(int length)
@@ -28,7 +33,7 @@ namespace ContainerVervoer.Models
         #region Checks the Container Type
         public bool AddContainer(Container container)
         {
-            switch(container.Type)
+            switch (container.Type)
             {
                 case ContainerType.Cooled:
                     return AddCooledContainers(container);
@@ -65,23 +70,46 @@ namespace ContainerVervoer.Models
         #region Valuable Containers
         public bool AddValuableContainers(Container container)
         {
-            for (int i = 0; i < Stacks.Count; i++)
+            for (int stackindex = 0; stackindex < Stacks.Count; stackindex++)
             {
-                if (i % 2 == 0) // Checks if the stack is an even stack.
+                if (stackindex % 2 == 0) 
                 {
-                    if (Stacks[i + 1] != null) // Checks if the next stack exists
+                    if (CheckHeightOfFrontStack(stackindex) || CheckHeightOfBackStack(stackindex))
                     {
-                        if (Stacks[i + 1].Containers.Count <= Stacks[i].Containers.Count) // Checks if the stack infront is lower in height than the one where valuable would be added
+                        if (Stacks[stackindex].AddContainer(container))
                         {
-                            if (Stacks[i].AddContainer(container)) // Adds the Container
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                 }
             }
             return false;
+        }
+        #endregion
+
+        #region Checks the Height of the Stacks infront and behind of a certain stack
+        public bool CheckHeightOfFrontStack(int stackindex)
+        {
+            try
+            {
+                return Stacks[stackindex].GetHeight() <= Stacks.ElementAt(stackindex - 1).GetHeight();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return true;
+            }
+        }
+
+        public bool CheckHeightOfBackStack(int stackindex)
+        {
+            try
+            {
+                return Stacks[stackindex].GetHeight() <= Stacks.ElementAt(stackindex - 1).GetHeight();
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                return true;
+            }
         }
         #endregion
 

@@ -9,14 +9,17 @@ namespace ContainerVervoer.Models
 {
     public class Port
     {
-
+        #region Variables
         public List<Container> containersToPlace = new List<Container>();
         public CargoShip cargoShip;
+        #endregion
 
+        #region Constructor
         public Port(int length, int width, int maximumweight)
         {
             cargoShip = new CargoShip(length, width, maximumweight);
         }
+        #endregion
 
         #region Starts the placing of containers
         /// <summary>

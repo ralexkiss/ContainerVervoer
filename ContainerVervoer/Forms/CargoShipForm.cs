@@ -21,7 +21,7 @@ namespace ContainerVervoer.Forms
         }
 
         /// <summary>
-        /// Loads 
+        /// Loads the Grid with the rows and stacks
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -54,13 +54,14 @@ namespace ContainerVervoer.Forms
                 x++;
                 z = 0;
             }
-            Label informationLabel = new Label
+            if (port.cargoShip.IsShipInBalance())
             {
-                Size = new Size(200, 100),
-                Location = new Point((boxWidth + 5) * port.cargoShip.width + 30, 30),
-                Text = "CargoShip is safe, filled and ready to go!"
-            };
-            Controls.Add(informationLabel);
+                MessageBox.Show("CargoShip is filled and ready to go!", "CargoShip is safe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("CargoShip is not in balance", "CargoShip is not safe", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         //Load container information

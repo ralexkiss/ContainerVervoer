@@ -9,8 +9,11 @@ namespace ContainerVervoer.Models
 {
     public class Stack
     {
+        #region Variables
         public List<Container> Containers = new List<Container>();
+        #endregion
 
+        #region ToString override to show information of the Stack
         public override string ToString()
         {
             string result = "Stack Information: ";
@@ -21,6 +24,8 @@ namespace ContainerVervoer.Models
             }
             return "Stack is Empty";
         }
+        #endregion
+
         #region 2 checks before adding to stack.
         public bool AddContainer(Container container)
         {
@@ -40,19 +45,25 @@ namespace ContainerVervoer.Models
         }
         #endregion
 
+        #region Check if Stack containers any valuables
         public bool ContainsValuable()
         {
             return Containers.Any(container => container.Type == ContainerType.Valuable);
         }
+        #endregion
 
+        #region Get the Height of the Stack
         public int GetHeight()
         {
             return Containers.Count;
         }
+        #endregion
 
+        #region Get the total weight of the Stack
         public int GetWeight()
         {
             return Containers.Sum(container => container.Weight);
         }
+        #endregion
     }
 }
